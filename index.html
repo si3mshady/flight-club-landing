@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Club Labs | Elliott Arnold</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top left, #101010, #1c1c1c);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 0 40px rgba(0, 223, 196, 0.15);
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00dfc4;
+      margin-bottom: 15px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #00dfc4;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    form input[type="text"],
+    form input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+    }
+    form button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #00dfc4;
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background-color: #00bfa5;
+    }
+    section {
+      margin-top: 30px;
+      text-align: left;
+    }
+    section h2 {
+      color: #00dfc4;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    section ul {
+      margin-left: 20px;
+      line-height: 1.6;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    @media (max-width: 480px) {
+      .card { padding: 30px 20px; }
+      section { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://media.licdn.com/dms/image/v2/D5603AQETczSDptEdVw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1711076649535?e=1748476800&v=beta&t=pZmtHFiHRxqfV2eJHdWhs-0cTrHFiiDG96thWXTUU-g" alt="Elliott Arnold">
+    <h1>FLIGHT CLUB LABS</h1>
+    <p>We Build Drones. We Race. We Learn. We Win.</p>
+    <p><strong>Join free to access live demos, tutorials, and drone drops.</strong></p>
+
+    <form id="emailForm">
+      <input type="text" placeholder="Your name" required />
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <section>
+      <h2>What You’ll Get Inside</h2>
+      <ul>
+        <li>🛠️ Free Monthly Drone Build Demos (Virtual & Local)</li>
+        <li>📩 The Flight Club Newsletter – Tutorials, Races, Gear Drops</li>
+        <li>🎯 Live & Virtual Drone Build Challenges</li>
+        <li>🌍 Remote Drone Workshops – Wherever you are</li>
+        <li>💻 Tech Training – SRE/Cloud/Automation courses taught by Elliott Arnold</li>
+      </ul>
+    </section>
+
+    <p style="margin-top: 20px; font-size: 1rem;"><strong>This is a movement — not just a mailing list. Come build with us.</strong></p>
+
+    <footer>© 2025 Elliott Arnold | No Boundaries. Only Altitude.</footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('emailForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = form.querySelector('input[type=\"text\"]').value;
+      const email = form.querySelector('input[type=\"email\"]').value;
+
+      await fetch("https://script.google.com/macros/s/AKfycbzeiLbv_vL9Wwl5okKqg4Ghr0Ob7G-E5eJz1LKEtQjvS44EvQFSHouHBOE8N2DDQ-1g/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
+      });
+
+      form.innerHTML = `<p style="color: #00dfc4;">🎉 You're in! Check your inbox soon.</p>`;
+    });
+  </script>
+</body>
+</html>
